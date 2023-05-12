@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:products_firebase/application/pages/category/bloc/category_bloc.dart';
-import 'package:products_firebase/application/pages/product/product_page.dart';
-import 'package:products_firebase/data/repositories/category/cateagory_repository.dart';
+import 'package:products_firebase/application/pages/category/category_page.dart';
+import 'package:products_firebase/application/pages/category/cubit/category_cubit.dart';
+import 'package:products_firebase/data/repositories/category/cateagory_repository_impl.dart';
 
 import 'firebase_options.dart';
 
@@ -21,17 +21,15 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => CategoryBloc(
-            categoryRepository: CategoryRepository(),
-          ),
+          create: (_) => CategoryCubit(),
         ),
       ],
       child: MaterialApp(
-        title: 'Products',
+        title: 'Categories to Products',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const ProductPageWrapperProvider(),
+        home: const CategoryPageWrapperProvider(),
       ),
     );
   }

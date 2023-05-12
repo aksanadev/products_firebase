@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:products_firebase/application/pages/category/bloc/category_bloc.dart';
+import 'package:products_firebase/application/pages/category/cubit/category_cubit.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key});
@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<CategoryBloc>(context).add(CategoriesRequestEvent());
+        BlocProvider.of<CategoryCubit>(context).adviceRequested();
       },
       child: Material(
         elevation: 3,

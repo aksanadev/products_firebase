@@ -4,7 +4,7 @@ abstract class CategoryState extends Equatable {
   const CategoryState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class CategoryInitial extends CategoryState {
@@ -19,11 +19,12 @@ class CategoryLoading extends CategoryState {}
 
 class CategoryLoaded extends CategoryState {
   final List<CategoryModel> categories;
+  final CategoryEntity? category;
 
-  const CategoryLoaded({required this.categories});
+  const CategoryLoaded({this.categories = const [], this.category});
 
   @override
-  List<Object> get props => [categories];
+  List<Object?> get props => [categories, category];
 }
 
 class CategoryError extends CategoryState {

@@ -1,13 +1,13 @@
 part of 'category_bloc.dart';
 
-abstract class CategoryState extends Equatable {
-  const CategoryState();
+abstract class CategoryDEPRECATEDState extends Equatable {
+  const CategoryDEPRECATEDState();
 
   @override
   List<Object> get props => [];
 }
 
-class CategoryInitial extends CategoryState {
+class CategoryInitial extends CategoryDEPRECATEDState {
   final String categoryPlateholder;
 
   const CategoryInitial({required this.categoryPlateholder});
@@ -15,9 +15,9 @@ class CategoryInitial extends CategoryState {
   List<Object> get props => [categoryPlateholder];
 }
 
-class CategoryLoading extends CategoryState {}
+class CategoryLoading extends CategoryDEPRECATEDState {}
 
-class CategoryLoaded extends CategoryState {
+class CategoryLoaded extends CategoryDEPRECATEDState {
   final List<CategoryModel> categories;
 
   const CategoryLoaded({required this.categories});
@@ -26,7 +26,7 @@ class CategoryLoaded extends CategoryState {
   List<Object> get props => [categories];
 }
 
-class CategoryError extends CategoryState {
+class CategoryError extends CategoryDEPRECATEDState {
   final String errorMessage;
 
   const CategoryError({required this.errorMessage});

@@ -1,8 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:products_firebase/data/models/category_model.dart';
-import 'package:products_firebase/data/repositories/category/cateagory_repository_impl.dart';
 import 'package:products_firebase/domain/entities/category_entity.dart';
 import 'package:products_firebase/domain/failures/failures.dart';
 import 'package:products_firebase/domain/usecases/category_usecases.dart';

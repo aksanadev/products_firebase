@@ -54,22 +54,20 @@ class CategoryPage extends StatelessWidget {
                               return Column(
                                 children: [
                                   // CategoryField(category: state.categories)
-                                  ...state.categories
-                                      .map((category) => Column(
-                                            children: [
-                                              Text(category.name),
-                                              SizedBox(
-                                                height: height * .3,
-                                                child: Image.network(
-                                                  category.imageUrl,
-                                                  fit: BoxFit.cover,
-                                                  height: double.infinity,
-                                                  width: double.infinity,
-                                                ),
-                                              ),
-                                            ],
-                                          ))
-                                      .toList(),
+                                  ...state.categories.map((category) => Column(
+                                        children: [
+                                          Text(category.name),
+                                          SizedBox(
+                                            height: height * .3,
+                                            child: Image.network(
+                                              category.imageUrl,
+                                              fit: BoxFit.cover,
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                            ),
+                                          ),
+                                        ],
+                                      )),
                                   SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     physics: const BouncingScrollPhysics(
@@ -77,37 +75,32 @@ class CategoryPage extends StatelessWidget {
                                             AlwaysScrollableScrollPhysics()),
                                     child: Row(
                                       children: [
-                                        ...state.categories
-                                            .map(
-                                              (softDrink) => SizedBox(
-                                                height: height * .27,
-                                                width: width * .4,
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(20),
-                                                  child: Card(
-                                                    elevation: 3,
-                                                    child: Column(
-                                                      children: [
-                                                        SizedBox(
-                                                          height: height * .17,
-                                                          child: Image.network(
-                                                            softDrink.imageUrl,
-                                                            fit: BoxFit.contain,
-                                                            height:
-                                                                double.infinity,
-                                                            width:
-                                                                double.infinity,
-                                                          ),
-                                                        ),
-                                                        Text(softDrink.name),
-                                                      ],
+                                        ...state.categories.map(
+                                          (softDrink) => SizedBox(
+                                            height: height * .27,
+                                            width: width * .4,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(20),
+                                              child: Card(
+                                                elevation: 3,
+                                                child: Column(
+                                                  children: [
+                                                    SizedBox(
+                                                      height: height * .17,
+                                                      child: Image.network(
+                                                        softDrink.imageUrl,
+                                                        fit: BoxFit.contain,
+                                                        height: double.infinity,
+                                                        width: double.infinity,
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Text(softDrink.name),
+                                                  ],
                                                 ),
                                               ),
-                                            )
-                                            .toList(),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),

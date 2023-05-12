@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
+import 'package:products_firebase/data/exceptions/exceptions.dart';
 import 'package:products_firebase/data/models/category_model.dart';
-import 'package:products_firebase/domain/failures/failures.dart';
 
 abstract class CategoryRemoteDatasources {
   Future<List<CategoryModel>> getCategoriesFromFirebase();
@@ -12,9 +11,15 @@ class CategoryRemoteDatasourcesImpl extends CategoryRemoteDatasources {
 
   @override
   Future<List<CategoryModel>> getCategoriesFromFirebase() async {
-    return (await _firebaseFirestore.collection('categories').get())
-        .docs
-        .map((e) => CategoryModel.fromJson(e.data()))
-        .toList();
+    try {
+      final response =
+          (await _firebaseFirestore.collection('categories').get());
+
+      return response.docs
+          .map((e) => CategoryModel.fromJson(e.data()))
+          .toList();
+    } on FirebaseException catch (_) {
+      throw ServerException();
+    }
   }
 }

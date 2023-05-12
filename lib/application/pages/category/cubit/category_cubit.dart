@@ -13,9 +13,9 @@ const String generalFailure = 'General Failure Occured';
 const String unknownlFailure = 'Unknown Failure Occured';
 
 class CategoryCubit extends Cubit<CategoryState> {
-  CategoryCubit()
+  final CategoryUsecases categoryUsecases;
+  CategoryCubit({required this.categoryUsecases})
       : super(const CategoryInitial(categoryPlateholder: 'Zero Categories'));
-  final CategoryUsecases categoryUsecases = CategoryUsecases();
   // could use other usecases (collection of methods that has to do with the category)
   // usecase is where the business logic gets exectued
 

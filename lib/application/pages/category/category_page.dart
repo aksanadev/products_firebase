@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products_firebase/application/pages/category/cubit/category_cubit.dart';
 import 'package:products_firebase/application/pages/category/widgets/custom_button.dart';
 import 'package:products_firebase/application/pages/category/widgets/error_message.dart';
+import 'package:products_firebase/injection.dart';
 
 class CategoryPageWrapperProvider extends StatelessWidget {
   const CategoryPageWrapperProvider({super.key});
@@ -10,7 +11,7 @@ class CategoryPageWrapperProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CategoryCubit(),
+      create: (context) => sl<CategoryCubit>(),
       child: const CategoryPage(),
     );
   }

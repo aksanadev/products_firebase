@@ -7,13 +7,14 @@ abstract class CategoryRemoteDatasources {
 }
 
 class CategoryRemoteDatasourcesImpl extends CategoryRemoteDatasources {
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firebaseFirestore;
+
+  CategoryRemoteDatasourcesImpl({required this.firebaseFirestore});
 
   @override
   Future<List<CategoryModel>> getCategoriesFromFirebase() async {
     try {
-      final response =
-          (await _firebaseFirestore.collection('categories').get());
+      final response = (await firebaseFirestore.collection('categories').get());
 
       return response.docs
           .map((e) => CategoryModel.fromJson(e.data()))

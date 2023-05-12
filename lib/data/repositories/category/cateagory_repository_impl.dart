@@ -6,8 +6,8 @@ import 'package:products_firebase/domain/failures/failures.dart';
 import 'package:products_firebase/domain/repositories/category_repo.dart';
 
 class CategoryRepositoryImpl extends CategoryRepo {
-  final CategoryRemoteDatasources categoryRemoteDatasources =
-      CategoryRemoteDatasourcesImpl();
+  CategoryRepositoryImpl({required this.categoryRemoteDatasources});
+  final CategoryRemoteDatasources categoryRemoteDatasources;
 
   @override
   Future<Either<Failure, List<CategoryModel>>>

@@ -5,7 +5,6 @@ import 'package:products_firebase/data/datasources/category_remote_datasource.da
 import 'package:products_firebase/data/repositories/category/cateagory_repository_impl.dart';
 import 'package:products_firebase/domain/repositories/category_repo.dart';
 import 'package:products_firebase/domain/usecases/category_usecases.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 final sl = GetIt.I;
 
